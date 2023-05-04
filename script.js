@@ -37,3 +37,4 @@ document.querySelector('.again').addEventListener('click', function () {
 });
 
 //Luan Ferreira version 1.0.1
+//Luan Ferreira version 1.0.2
