@@ -16,25 +16,33 @@ const resetGame = function () {
 
 document.querySelector('.check').addEventListener('click', function () {
   let vScore = Number(document.querySelector('.score').textContent);
+  let vName = document.querySelector('.namei');
+  let vGuessi = document.querySelector('.guess');
   const vGuess = Number(document.querySelector('.guess').value);
-  if (vGuess === vNumber) {
-    document.querySelector('.message').textContent = '🎉 Correct Number!';
-    document.querySelector('.highscore').textContent = vScore;
-    document.querySelector('.number').textContent = vNumber;
-  } else {
-    displayMessage(vGuess > vNumber ? '📈 Too high!' : '📉 Too low!');
-    vScore--;
-    document.querySelector('.score').textContent = vScore;
-    if (vScore === 0) {
-      displayMessage('❌ End Game!');
-      resetGame();
+  if (vName.defaultValue != vName.value) {
+    if (vGuessi.defaultValue != vGuessi.value) {
+      if (vGuess === vNumber) {
+        document.querySelector('.message').textContent = '🎉 Correct Number!';
+        document.querySelector('.highscore').textContent = vScore;
+        document.querySelector('.number').textContent = vNumber;
+        document.querySelector('.name').textContent = vName.value;
+      } else {
+        displayMessage(vGuess > vNumber ? '📈 Too high!' : '📉 Too low!');
+        vScore--;
+        document.querySelector('.score').textContent = vScore;
+        if (vScore === 0) {
+          displayMessage('❌ End Game!');
+          resetGame();
+        }
+      }
+    } else {
+      displayMessage('Inform a guess');
     }
+  } else {
+    displayMessage('Inform your name');
   }
 });
 
 document.querySelector('.again').addEventListener('click', function () {
   resetGame();
 });
-
-//Luan Ferreira version 1.0.1
-//Luan Ferreira version 1.0.2
